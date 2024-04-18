@@ -5,9 +5,9 @@ namespace Meno.Core.Entities
 {
     public class User : BaseEntity
     {
-        public UserName Name { get; set; }
-        public Login Login { get; set; }    
-        public Email Email { get; set; }
+        public UserName Name { get; private set; }
+        public Login Login { get; private set; }    
+        public Email Email { get; private set; }
         public Password Password { get; private set; }
         public UserRole Role { get; private set; }
 
