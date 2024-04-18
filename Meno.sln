@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{51E029EC-701A-49E1-BC98-3FD161AA91FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meno.Api", "src\Meno.Api\Meno.Api.csproj", "{49650AC6-7548-4A68-B202-7DD1B15F251B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meno.Application", "src\Meno.Application\Meno.Application.csproj", "{D2182667-C924-4B60-9E7F-128619B44117}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meno.Core", "src\Meno.Core\Meno.Core.csproj", "{9900738E-5D0A-4F23-A17D-AAB74DD6BD30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meno.Infrastructure", "src\Meno.Infrastructure\Meno.Infrastructure.csproj", "{AC07113F-B756-40F8-8570-6EC6D208B253}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{D4771D3C-9009-46AE-B2E2-4B56A659B11C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meno.Tests.Unit", "tests\Meno.Tests.Unit\Meno.Tests.Unit.csproj", "{909C29CB-0509-45F1-911C-5D07C124FD0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Meno.Tests.Integration", "tests\Meno.Tests.Integration\Meno.Tests.Integration.csproj", "{5DC2D57C-13AC-420F-8026-D93E617AAC68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{49650AC6-7548-4A68-B202-7DD1B15F251B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49650AC6-7548-4A68-B202-7DD1B15F251B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49650AC6-7548-4A68-B202-7DD1B15F251B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49650AC6-7548-4A68-B202-7DD1B15F251B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2182667-C924-4B60-9E7F-128619B44117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2182667-C924-4B60-9E7F-128619B44117}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2182667-C924-4B60-9E7F-128619B44117}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2182667-C924-4B60-9E7F-128619B44117}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9900738E-5D0A-4F23-A17D-AAB74DD6BD30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9900738E-5D0A-4F23-A17D-AAB74DD6BD30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9900738E-5D0A-4F23-A17D-AAB74DD6BD30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9900738E-5D0A-4F23-A17D-AAB74DD6BD30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC07113F-B756-40F8-8570-6EC6D208B253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC07113F-B756-40F8-8570-6EC6D208B253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC07113F-B756-40F8-8570-6EC6D208B253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC07113F-B756-40F8-8570-6EC6D208B253}.Release|Any CPU.Build.0 = Release|Any CPU
+		{909C29CB-0509-45F1-911C-5D07C124FD0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{909C29CB-0509-45F1-911C-5D07C124FD0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{909C29CB-0509-45F1-911C-5D07C124FD0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{909C29CB-0509-45F1-911C-5D07C124FD0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DC2D57C-13AC-420F-8026-D93E617AAC68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC2D57C-13AC-420F-8026-D93E617AAC68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC2D57C-13AC-420F-8026-D93E617AAC68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC2D57C-13AC-420F-8026-D93E617AAC68}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{49650AC6-7548-4A68-B202-7DD1B15F251B} = {51E029EC-701A-49E1-BC98-3FD161AA91FC}
+		{D2182667-C924-4B60-9E7F-128619B44117} = {51E029EC-701A-49E1-BC98-3FD161AA91FC}
+		{9900738E-5D0A-4F23-A17D-AAB74DD6BD30} = {51E029EC-701A-49E1-BC98-3FD161AA91FC}
+		{AC07113F-B756-40F8-8570-6EC6D208B253} = {51E029EC-701A-49E1-BC98-3FD161AA91FC}
+		{909C29CB-0509-45F1-911C-5D07C124FD0F} = {D4771D3C-9009-46AE-B2E2-4B56A659B11C}
+		{5DC2D57C-13AC-420F-8026-D93E617AAC68} = {D4771D3C-9009-46AE-B2E2-4B56A659B11C}
+	EndGlobalSection
+EndGlobal

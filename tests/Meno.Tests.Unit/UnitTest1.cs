@@ -1,4 +1,4 @@
-namespace Memo.Tests.Unit;
+namespace Meno.Tests.Unit;
 
 public class UnitTest1
 {
