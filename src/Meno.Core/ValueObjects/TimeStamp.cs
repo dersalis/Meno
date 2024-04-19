@@ -1,3 +1,5 @@
+using Meno.Core.Exceptions;
+
 namespace Meno.Core.ValueObjects
 {
     public sealed record TimeStamp
@@ -8,7 +10,7 @@ namespace Meno.Core.ValueObjects
         {
             if (value.Date < DateTime.Now.Date)
             {
-                // throw new SmallerTimeStampException(value);
+                throw new SmallerTimeStampException(value);
             }
 
             Value = value;

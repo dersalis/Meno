@@ -1,6 +1,4 @@
-using Meno.Core.Exceptions;
-
-namespace Meno.Core.ValueObjects
+namespace Meno.Core.Exceptions
 {
     public class InvalidMenuItemPriceException : BaseException
     {

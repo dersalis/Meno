@@ -1,3 +1,5 @@
+using Meno.Core.Exceptions;
+
 namespace Meno.Core.ValueObjects
 {
     public record class Login
