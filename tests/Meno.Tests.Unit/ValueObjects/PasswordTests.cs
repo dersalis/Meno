@@ -25,10 +25,10 @@ namespace Meno.Tests.Unit.ValueObjects
         }
 
         [Fact]
-        public async Task Create_Password_With_String_Shorter_Than_8_Characters_Should_Throw_InvalidPasswordException()
+        public async Task Create_Password_With_String_Shorter_Than_6_Characters_Should_Throw_InvalidPasswordException()
         {
             // Arrange
-            var shortString = "1234567";
+            var shortString = "12345";
 
             // Act
             var exception = Record.Exception(() => new Password(shortString));
