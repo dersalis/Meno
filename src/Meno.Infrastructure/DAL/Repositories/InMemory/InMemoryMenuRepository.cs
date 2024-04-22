@@ -1,33 +1,43 @@
 using Meno.Core.Entities;
+using Meno.Core.ValueObjects;
 using Meno.Infrastructure.Abstractions;
 
 namespace Meno.Infrastructure.DAL.Repositories.InMemory
 {
     public class InMemoryMenuRepository : IRepository<Menu>
     {
+        private readonly List<Menu> _menus;
+
+        public InMemoryMenuRepository()
+        {
+            _menus = FakeDataGenerator.GenerateMenus();
+        }
+
         public Task AddAsync(Menu entity)
         {
-            throw new NotImplementedException();
+            _menus.Add(entity);
+            return Task.CompletedTask;
         }
 
         public Task DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            _menus.RemoveAll(m => m.Id == (ID)id);
+            return Task.CompletedTask;
         }
 
         public Task<IEnumerable<Menu>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return Task.FromResult(_menus.AsEnumerable());
         }
 
         public Task<Menu> GetAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return Task.FromResult(_menus.FirstOrDefault(m => m.Id == (ID)id));
         }
 
         public Task UpdateAsync(Menu entity)
         {
-            throw new NotImplementedException();
+            return Task.CompletedTask;
         }
     }
 }
