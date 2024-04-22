@@ -74,9 +74,16 @@ namespace Meno.Api.Controllers
             return Ok();
         }
 
-        [HttpPost("{id:guid}/addplace")]
+        [HttpPost("{userId:guid}/addplace")]
         [AllowAnonymous]
-        public async Task<IActionResult> AddPlace([FromRoute] Guid id)
+        public async Task<IActionResult> AddPlace([FromRoute] Guid userId)
+        {
+            return Ok();
+        }
+        
+        [HttpPut("{userId:guid}/updateplace/{placeId:guid}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> UpdatePlace([FromRoute] Guid userId, [FromRoute] Guid placeId)
         {
             return Ok();
         }
@@ -84,6 +91,20 @@ namespace Meno.Api.Controllers
         [HttpPost("{userId:guid}/removeplace/{placeId:guid}")]
         [AllowAnonymous]
         public async Task<IActionResult> RemovePlace([FromRoute] Guid userId, [FromRoute] Guid placeId)
+        {
+            return Ok();
+        }
+
+        [HttpGet("{userId:guid}/getallplaces")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetAllPlaces()
+        {
+            return Ok();
+        }
+
+        [HttpGet("{userId:guid}/getplacebyid/{id:guid}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetPlaceById()
         {
             return Ok();
         }
