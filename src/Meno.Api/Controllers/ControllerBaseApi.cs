@@ -12,16 +12,16 @@ namespace Meno.Api.Controllers
             _mediator = mediator;
         }
 
-        protected Guid? GetUserId()
-        {
-            string userName = HttpContext.User.Identity?.Name;
+        // protected Guid? GetUserId()
+        // {
+        //     string userName = HttpContext.User.Identity?.Name;
 
-            if (Guid.TryParse(userName, out Guid userId))
-            {
-                return userId;
-            }
+        //     if (Guid.TryParse(userName, out Guid userId))
+        //     {
+        //         return userId;
+        //     }
 
-            return null;
-        }
+        //     return null;
+        // }
     }
 }

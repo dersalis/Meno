@@ -4,7 +4,7 @@ using Meno.Core.ValueObjects;
 
 namespace Meno.Infrastructure.DAL
 {
-    public class FakeDataGenerator
+    public static class FakeDataGenerator
     {
         private static List<User> _users = null;
         private static List<Place> _places = null;
@@ -22,8 +22,6 @@ namespace Meno.Infrastructure.DAL
                 new Email("system@system.pl"),
                 new Password("P@$$w0rd"));
 
-            _users.Add(user);
-
             return user;
         }
 
@@ -31,7 +29,7 @@ namespace Meno.Infrastructure.DAL
         {
             if (_categories == null)
             {
-                User user = CreateSystemUser();
+                User user = GenerateUsers().First();
 
                 _categories = Builder<Category>
                 .CreateListOfSize(10)
@@ -53,7 +51,7 @@ namespace Meno.Infrastructure.DAL
         {
             if (_menuItems == null)
             {
-                User user = CreateSystemUser();
+                User user = GenerateUsers().First();
                 List<Category> categories = GenerateCategories();
                 Random rand = new Random();
 
@@ -79,7 +77,7 @@ namespace Meno.Infrastructure.DAL
         {
             if (_menus == null)
             {
-                User user = CreateSystemUser();
+                User user = GenerateUsers().First();
                 List<MenuItem> menuItems = GenerateMenuItems();
                 Random rand = new Random();
 
@@ -107,7 +105,7 @@ namespace Meno.Infrastructure.DAL
         {
             if (_places == null)
             {
-                User user = CreateSystemUser();
+                User user = GenerateUsers().First();
                 Random rand = new Random();
 
                 _places = Builder<Place>
@@ -118,9 +116,9 @@ namespace Meno.Infrastructure.DAL
                     new PlaceDescription(Faker.Company.CatchPhrase()),
                     new Address(Faker.Address.StreetAddress()),
                     new City(Faker.Address.City()),
-                    new PostalCode(Faker.Address.ZipCode()),
+                    new PostalCode(RandomPostalCode()),
                     new Country(Faker.Address.Country()),
-                    new Phone(Faker.Phone.Number()),
+                    new Phone(RandomPhoneNumber()),
                     new Email(Faker.Internet.Email())
                 ))
                 .Do(w => w.AddMenu(GenerateMenus()[rand.Next(0, GenerateMenus().Count)]))
@@ -137,7 +135,10 @@ namespace Meno.Infrastructure.DAL
         {
             if (_users == null)
             {
-                User user = CreateSystemUser();
+                User systemUser = CreateSystemUser();
+                _users = new List<User> { systemUser };
+                User user = GenerateUsers().First();
+
                 Random rand = new Random();
 
                 _users = Builder<User>
@@ -158,6 +159,12 @@ namespace Meno.Infrastructure.DAL
 
             return _users;
         }
+
+        private static string RandomPhoneNumber()
+            => $"+48{Faker.RandomNumber.Next(600000000, 999999999)}";
+
+        private static string RandomPostalCode()
+            => $"{Faker.RandomNumber.Next(10, 99).ToString("D2")}-{Faker.RandomNumber.Next(100, 999).ToString("D3")}";
         
     }
 

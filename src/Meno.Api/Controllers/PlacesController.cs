@@ -1,4 +1,5 @@
 using MediatR;
+using Meno.Application.Queries.Places.GetAllCategories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -50,6 +51,40 @@ namespace Meno.Api.Controllers
         [HttpPost("{placeId:guid}/duplicatemenu/{menuid:guid}")]
         [AllowAnonymous]
         public async Task<IActionResult> DuplicateMenu([FromRoute] Guid menuid)
+        {
+            return Ok();
+        }
+
+
+        [HttpGet("{placeId:guid}/getallcategories")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetAllCategories([FromRoute] Guid placeId)
+        {
+            var categories = await _mediator.Send(new GetAllCategoriesQuery { PlaceId = placeId });
+            return Ok();
+        }
+
+        [HttpGet("{placeId:guid}/getcategorybyid/{id:guid}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetCategoryById()
+        {
+            return Ok();
+        }
+
+        [HttpPost("{placeId:guid}/addcategory")]
+        public async Task<IActionResult> AddCategory()
+        {
+            return Ok();
+        }
+
+        [HttpPut("{placeId:guid}/updatecategory/{id:guid}")]
+        public async Task<IActionResult> UpdateCategory()
+        {
+            return Ok();
+        }
+
+        [HttpDelete("{placeId:guid}/deletecategory/{id:guid}")]
+        public async Task<IActionResult> DeleteCategory()
         {
             return Ok();
         }

@@ -13,8 +13,10 @@ namespace Meno.Core.Entities
         public Phone Phone { get; private set; }
         public Email Email { get; private set; }
         public IEnumerable<Menu> Menus => _menus;
+        public IEnumerable<Category> Categories => _categories;
 
         private readonly HashSet<Menu> _menus = new();
+        private readonly HashSet<Category> _categories = new();
 
         public Place(PlaceName name, PlaceDescription description, Address address, City city, PostalCode postalCode, Country country, Phone phone, Email email)
             : base(null, null, null, null)
@@ -77,6 +79,16 @@ namespace Meno.Core.Entities
         public void RemoveMenu(Menu menu)
         {
             _menus.Remove(menu);
+        }
+
+        public void AddCategory(Category category)
+        {
+            _categories.Add(category);
+        }
+
+        public void RemoveCategory(Category category)
+        {
+            _categories.Remove(category);
         }
     }
 }

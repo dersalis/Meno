@@ -5,6 +5,8 @@ using Meno.Infrastructure.Exceptions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace Meno.Infrastructure
 {
@@ -14,6 +16,7 @@ namespace Meno.Infrastructure
         {
             services.AddControllers();
             services.AddSingleton<ExceptionMidelware>();
+            services.AddHttpContextAccessor();
 
             // Repositories
             services.AddScoped<IRepository<Category>, InMemoryCategoryRepository>();
@@ -22,7 +25,19 @@ namespace Meno.Infrastructure
             services.AddScoped<IRepository<Place>, InMemoryPlaceRepository>();
             services.AddScoped<IRepository<User>, InMemoryUserRepository>();
 
-            // Rest
+            // Swagger
+            services.AddSwaggerGen(swagger => 
+            {
+                swagger.EnableAnnotations();
+                swagger.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "WasteControl API",
+                    Version = "v1"
+                });
+            });
+
+            // Rest         
+            services.AddEndpointsApiExplorer();
 
             return services;
         }
@@ -30,6 +45,24 @@ namespace Meno.Infrastructure
         public static WebApplication UseInfrastructure(this WebApplication app)
         {
             app.UseMiddleware<ExceptionMidelware>();
+            
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI();
+            }
+
+            // app.UseSwagger();
+            // app.UseSwaggerUI();
+            // app.UseReDoc(reDoc => 
+            // {
+            //     reDoc.RoutePrefix = "docs";
+            //     reDoc.DocumentTitle = "WasteControl API";
+            //     reDoc.SpecUrl = "/swagger/v1/swagger.json";
+            // });
+
+            // app.UseAuthentication();
+            // app.UseAuthorization();
             app.MapControllers();
 
             return app;

@@ -1,4 +1,5 @@
 using MediatR;
+using Meno.Application.Queries.Users.GetAllUsers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,14 +14,14 @@ namespace Meno.Api.Controllers
         }
 
         [HttpPost("signup")]
-        [AllowAnonymous]
+        // [AllowAnonymous]
         public async Task<IActionResult> SignUp()
         {
             return Ok();
         }
 
         [HttpPost("signin")]
-        [AllowAnonymous]
+        // [AllowAnonymous]
         public async Task<IActionResult> SignIn()
         {
             return Ok();
@@ -33,77 +34,78 @@ namespace Meno.Api.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        // [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
-            return Ok();
+            var users = await _mediator.Send(new GetAllUsersQuery());
+            return Ok(users);
         }
 
         [HttpGet("getbyid/{id:guid}")]
-        [AllowAnonymous]
+        // [AllowAnonymous]
         public async Task<IActionResult> GetById()
         {
             return Ok();
         }
 
         [HttpGet("getbyemail/{email}")]
-        [AllowAnonymous]
+        // [AllowAnonymous]
         public async Task<IActionResult> GetByEmail()
         {
             return Ok();
         }
 
         [HttpPut]
-        [AllowAnonymous]
+        // [AllowAnonymous]
         public async Task<IActionResult> Update()
         {
             return Ok();
         }
 
         [HttpDelete("{id:guid}")]
-        [AllowAnonymous]
+        // [AllowAnonymous]
         public async Task<IActionResult> Delete()
         {
             return Ok();
         }
 
         [HttpPost("forgotpassword")]
-        [AllowAnonymous]
+        // [AllowAnonymous]
         public async Task<IActionResult> ForgotPassword()
         {
             return Ok();
         }
 
         [HttpPost("{userId:guid}/addplace")]
-        [AllowAnonymous]
+        // [AllowAnonymous]
         public async Task<IActionResult> AddPlace([FromRoute] Guid userId)
         {
             return Ok();
         }
         
         [HttpPut("{userId:guid}/updateplace/{placeId:guid}")]
-        [AllowAnonymous]
+        // [AllowAnonymous]
         public async Task<IActionResult> UpdatePlace([FromRoute] Guid userId, [FromRoute] Guid placeId)
         {
             return Ok();
         }
 
         [HttpPost("{userId:guid}/removeplace/{placeId:guid}")]
-        [AllowAnonymous]
+        // [AllowAnonymous]
         public async Task<IActionResult> RemovePlace([FromRoute] Guid userId, [FromRoute] Guid placeId)
         {
             return Ok();
         }
 
         [HttpGet("{userId:guid}/getallplaces")]
-        [AllowAnonymous]
+        // [AllowAnonymous]
         public async Task<IActionResult> GetAllPlaces()
         {
             return Ok();
         }
 
         [HttpGet("{userId:guid}/getplacebyid/{id:guid}")]
-        [AllowAnonymous]
+        // [AllowAnonymous]
         public async Task<IActionResult> GetPlaceById()
         {
             return Ok();
